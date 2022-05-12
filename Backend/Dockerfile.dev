@@ -1,0 +1,8 @@
+FROM mcr.microsoft.com/dotnet/sdk:6.0-focal AS build-env
+
+# Use native linux file polling for better performance
+WORKDIR /app
+COPY ./ ./
+ENV PATH $PATH:/root/.dotnet/tools
+RUN dotnet tool install --global dotnet-ef
+ENTRYPOINT dotnet watch run --project src/Gateway --urls=http://+:5000

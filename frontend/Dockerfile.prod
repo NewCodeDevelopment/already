@@ -1,0 +1,56 @@
+FROM node:16-alpine
+
+RUN apk add --no-cache libc6-compat
+
+WORKDIR /var/www/html
+
+COPY package*.json ./
+RUN npm ci
+RUN npm install next typescript -g
+
+COPY ./ ./
+
+RUN npm run build
+
+CMD [ "npm", "start" ]
+
+
+
+# # Install dependencies only when needed
+# FROM node:16-alpine AS deps
+
+# RUN apk add --no-cache libc6-compat
+# WORKDIR /var/www/html
+# COPY ./frontend/package.json ./frontend/package-lock.json ./ 
+# RUN npm ci 
+
+
+# FROM node:16-alpine AS builder
+# WORKDIR /var/www/html
+# COPY --from=deps /var/www/html/node_modules ./node_modules
+# COPY ./frontend .
+
+# RUN npm run build
+
+# # Production image, copy all the files and run next
+# FROM node:16-alpine AS runner
+# WORKDIR /var/www/html
+
+# ENV NODE_ENV production
+
+# RUN addgroup --system --gid 1001 nodejs
+# RUN adduser --system --uid 1001 nextjs
+
+# COPY --from=builder /var/www/html/public ./public
+# COPY --from=builder /var/www/html/package.json ./package.json
+
+# COPY --from=builder --chown=nextjs:nodejs /var/www/html/.next/standalone ./
+# COPY --from=builder --chown=nextjs:nodejs /var/www/html/.next/static ./.next/static
+
+# USER nextjs
+
+# EXPOSE 3000
+
+# ENV PORT 3000
+
+# CMD ["node", "server.js"]

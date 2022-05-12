@@ -1,0 +1,59 @@
+version: "3.4"
+
+services:
+  db:
+    image: postgres:10.5
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB:
+      POSTGRES_USER:
+      POSTGRES_PASSWORD:
+    networks:
+      - database_network
+    volumes:
+      - ./Database:/var/lib/postgresql/data
+
+  backend:
+    image: already-backend
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile.${ENVIRONMENT}
+    environment:
+      ASPNETCORE_ENVIRONMENT: ${ENVIRONMENT}
+      CONNECTION_STRINGS: host=already-db;port=5432;database=${POSTGRES_DB};username=${POSTGRES_USER};password=${POSTGRES_PASSWORD};
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./Backend:/app
+    depends_on:
+      - already-db
+    networks:
+      - database_network
+      - public_network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.${ENVIRONMENT}
+    environment:
+      API_PATH: http://already-backend/api
+      NODE_ENV: ${ENVIRONMENT}
+    ports:
+      - "80:3000"
+    restart: always
+    volumes:
+      - ./frontend:/var/www/html
+      - /var/www/html/node_modules
+      - /var/www/html/.next
+    depends_on:
+      - already-backend
+    networks:
+      - public_network
+
+networks:
+  database_network:
+    name: database_network
+  public_network:
+    name: public_network
