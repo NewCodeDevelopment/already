@@ -1,6 +1,6 @@
 ﻿using Ardalis.Specification;
 
-namespace SharedKernel.Interfaces;
+namespace Shared.Interfaces;
 
 public interface IReadRepository<T> : IReadRepositoryBase<T> where T : class, IAggregateRoot
 {

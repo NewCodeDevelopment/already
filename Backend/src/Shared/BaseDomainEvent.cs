@@ -1,10 +1,10 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace SharedKernel;
+namespace Shared;
 
 [Keyless]
 public abstract class BaseDomainEvent : INotification
 {
-  public DateTime DateOccurred { get; protected set; } = DateTime.UtcNow;
+    public DateTime DateOccurred { get; protected set; } = DateTime.UtcNow;
 }

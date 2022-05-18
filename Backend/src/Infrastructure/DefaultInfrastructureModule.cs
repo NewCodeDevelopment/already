@@ -1,12 +1,10 @@
 ﻿using System.Reflection;
 using Autofac;
-using Core.AgreementAggregate;
-using Core.Interfaces;
-using SharedKernel.Interfaces;
+using Core.ProductAggregate;
 using Infrastructure.Data;
-using Infrastructure.Services;
 using MediatR;
 using MediatR.Pipeline;
+using Shared.Interfaces;
 using Module = Autofac.Module;
 
 namespace Infrastructure;
@@ -19,7 +17,7 @@ public class DefaultInfrastructureModule : Module
   public DefaultInfrastructureModule(bool isDevelopment, Assembly? callingAssembly = null)
   {
     _isDevelopment = isDevelopment;
-    var coreAssembly = Assembly.GetAssembly(typeof(Agreement)); // TODO: Replace "Project" with any type from your Core project
+    var coreAssembly = Assembly.GetAssembly(typeof(Product));
     //var infrastructureAssembly = Assembly.GetAssembly(typeof(StartupSetup));
     if (coreAssembly != null)
     {
@@ -82,8 +80,8 @@ public class DefaultInfrastructureModule : Module
       .AsImplementedInterfaces();
     }
 
-    builder.RegisterType<EmailSender>().As<IEmailSender>()
-        .InstancePerLifetimeScope();
+    // builder.RegisterType<EmailSender>().As<IEmailSender>()
+    //     .InstancePerLifetimeScope();
   }
 
   private void RegisterDevelopmentOnlyDependencies(ContainerBuilder builder)

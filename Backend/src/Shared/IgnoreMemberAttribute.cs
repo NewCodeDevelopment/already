@@ -1,4 +1,4 @@
-﻿namespace SharedKernel;
+﻿namespace Shared;
 
 // source: https://github.com/jhewlett/ValueObject
 [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]

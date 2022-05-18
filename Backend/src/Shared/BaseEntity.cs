@@ -1,14 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using SharedKernel.Interfaces;
-namespace SharedKernel;
+using Shared.Interfaces;
 
-public abstract class BaseEntity: IBaseEntity
+namespace Shared;
+
+public abstract class BaseEntity : IBaseEntity
 {
-  public Guid Id { get; set; }
-  
-  public DateTimeOffset CreatedAt { get; set; }
-  public DateTimeOffset UpdatedAt { get; set; }
+    public Guid Id { get; set; }
 
-  [NotMapped]
-  public List<BaseDomainEvent> Events { get; } = new();
+    public DateTimeOffset CreatedAt { get; set; }
+    public DateTimeOffset UpdatedAt { get; set; }
+
+    [NotMapped]
+    public List<BaseDomainEvent> Events { get; } = new();
 }
