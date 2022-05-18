@@ -1,5 +1,8 @@
 .env
 
+Database/*
+!Database/.gitkeep
+
 # IDE - VSCode
 .vscode/*
 !.vscode/settings.json
@@ -30,3 +33,4 @@
 # System Files
 .DS_Store
 Thumbs.db
+
