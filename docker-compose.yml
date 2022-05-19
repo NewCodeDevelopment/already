@@ -1,8 +1,8 @@
-version: "3.4"
+version: "3.8"
 
 services:
   db:
-    image: postgres:10.5
+    image: postgres
     restart: unless-stopped
     ports:
       - "5432:5432"
@@ -16,29 +16,31 @@ services:
       - ./Database:/var/lib/postgresql/data
 
   backend:
-    image: already-backend
+    image: already-backend:0.1
     build:
       context: ./Backend
       dockerfile: Dockerfile.${ENVIRONMENT}
     environment:
       ASPNETCORE_ENVIRONMENT: ${ENVIRONMENT}
-      CONNECTION_STRINGS: host=already-db;port=5432;database=${POSTGRES_DB};username=${POSTGRES_USER};password=${POSTGRES_PASSWORD};
+      CONNECTION_STRINGS: host=db;port=5432;database=${POSTGRES_DB};username=${POSTGRES_USER};password=${POSTGRES_PASSWORD};
     ports:
-      - "5000:5000"
+      - "8000:5000"
     volumes:
       - ./Backend:/app
     depends_on:
-      - already-db
+      - db
     networks:
       - database_network
       - public_network
+    command: bash -c "dotnet ef database update"
 
   frontend:
+    image: already-frontend:0.1
     build:
       context: ./frontend
       dockerfile: Dockerfile.${ENVIRONMENT}
     environment:
-      API_PATH: http://already-backend/api
+      API_PATH: http://backend/api
       NODE_ENV: ${ENVIRONMENT}
     ports:
       - "80:3000"
@@ -48,7 +50,7 @@ services:
       - /var/www/html/node_modules
       - /var/www/html/.next
     depends_on:
-      - already-backend
+      - backend
     networks:
       - public_network
 
