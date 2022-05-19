@@ -1,0 +1,30 @@
+/app/src/Core/bin/Debug/net6.0/Core.deps.json
+/app/src/Core/bin/Debug/net6.0/Core.dll
+/app/src/Core/bin/Debug/net6.0/Core.pdb
+/app/src/Core/bin/Debug/net6.0/Shared.dll
+/app/src/Core/bin/Debug/net6.0/Shared.pdb
+/app/src/Core/obj/Debug/net6.0/Core.csproj.AssemblyReference.cache
+/app/src/Core/obj/Debug/net6.0/Core.GeneratedMSBuildEditorConfig.editorconfig
+/app/src/Core/obj/Debug/net6.0/Core.AssemblyInfoInputs.cache
+/app/src/Core/obj/Debug/net6.0/Core.AssemblyInfo.cs
+/app/src/Core/obj/Debug/net6.0/Core.csproj.CoreCompileInputs.cache
+/app/src/Core/obj/Debug/net6.0/Core.csproj.CopyComplete
+/app/src/Core/obj/Debug/net6.0/Core.dll
+/app/src/Core/obj/Debug/net6.0/refint/Core.dll
+/app/src/Core/obj/Debug/net6.0/Core.pdb
+/app/src/Core/obj/Debug/net6.0/ref/Core.dll
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Core/bin/Debug/net6.0/Core.deps.json
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Core/bin/Debug/net6.0/Core.dll
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Core/bin/Debug/net6.0/Core.pdb
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Core/bin/Debug/net6.0/Shared.dll
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Core/bin/Debug/net6.0/Shared.pdb
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Core/obj/Debug/net6.0/Core.csproj.AssemblyReference.cache
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Core/obj/Debug/net6.0/Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Core/obj/Debug/net6.0/Core.AssemblyInfoInputs.cache
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Core/obj/Debug/net6.0/Core.AssemblyInfo.cs
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Core/obj/Debug/net6.0/Core.csproj.CoreCompileInputs.cache
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Core/obj/Debug/net6.0/Core.csproj.CopyComplete
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Core/obj/Debug/net6.0/Core.dll
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Core/obj/Debug/net6.0/refint/Core.dll
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Core/obj/Debug/net6.0/Core.pdb
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Core/obj/Debug/net6.0/ref/Core.dll

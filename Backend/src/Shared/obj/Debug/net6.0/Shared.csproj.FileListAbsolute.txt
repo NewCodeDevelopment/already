@@ -1,0 +1,24 @@
+/app/src/Shared/bin/Debug/net6.0/Shared.deps.json
+/app/src/Shared/bin/Debug/net6.0/Shared.dll
+/app/src/Shared/bin/Debug/net6.0/Shared.pdb
+/app/src/Shared/obj/Debug/net6.0/Shared.csproj.AssemblyReference.cache
+/app/src/Shared/obj/Debug/net6.0/Shared.GeneratedMSBuildEditorConfig.editorconfig
+/app/src/Shared/obj/Debug/net6.0/Shared.AssemblyInfoInputs.cache
+/app/src/Shared/obj/Debug/net6.0/Shared.AssemblyInfo.cs
+/app/src/Shared/obj/Debug/net6.0/Shared.csproj.CoreCompileInputs.cache
+/app/src/Shared/obj/Debug/net6.0/Shared.dll
+/app/src/Shared/obj/Debug/net6.0/refint/Shared.dll
+/app/src/Shared/obj/Debug/net6.0/Shared.pdb
+/app/src/Shared/obj/Debug/net6.0/ref/Shared.dll
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Shared/obj/Debug/net6.0/Shared.dll
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Shared/obj/Debug/net6.0/refint/Shared.dll
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Shared/obj/Debug/net6.0/Shared.pdb
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Shared/bin/Debug/net6.0/Shared.deps.json
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Shared/bin/Debug/net6.0/Shared.dll
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Shared/bin/Debug/net6.0/Shared.pdb
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Shared/obj/Debug/net6.0/Shared.csproj.AssemblyReference.cache
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Shared/obj/Debug/net6.0/Shared.GeneratedMSBuildEditorConfig.editorconfig
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Shared/obj/Debug/net6.0/Shared.AssemblyInfoInputs.cache
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Shared/obj/Debug/net6.0/Shared.AssemblyInfo.cs
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Shared/obj/Debug/net6.0/Shared.csproj.CoreCompileInputs.cache
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Shared/obj/Debug/net6.0/ref/Shared.dll

@@ -1,0 +1,785 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ardalis.Specification</name>
+    </assembly>
+    <members>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.Where``1(Ardalis.Specification.ISpecificationBuilder{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Specify a predicate that will be applied to the query
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="specificationBuilder"></param>
+            <param name="criteria"></param>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.Where``1(Ardalis.Specification.ISpecificationBuilder{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Boolean)">
+            <summary>
+            Specify a predicate that will be applied to the query
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="specificationBuilder"></param>
+            <param name="criteria"></param>
+            <param name="condition">If false, the criteria won't be added.</param>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.OrderBy``1(Ardalis.Specification.ISpecificationBuilder{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            Specify the query result will be ordered by <paramref name="orderExpression"/> in an ascending order
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="specificationBuilder"></param>
+            <param name="orderExpression"></param>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.OrderBy``1(Ardalis.Specification.ISpecificationBuilder{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Boolean)">
+            <summary>
+            Specify the query result will be ordered by <paramref name="orderExpression"/> in an ascending order
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="specificationBuilder"></param>
+            <param name="orderExpression"></param>
+            <param name="condition">If false, the expression won't be added. The whole Order chain will be discarded.</param>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.OrderByDescending``1(Ardalis.Specification.ISpecificationBuilder{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            Specify the query result will be ordered by <paramref name="orderExpression"/> in a descending order
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="specificationBuilder"></param>
+            <param name="orderExpression"></param>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.OrderByDescending``1(Ardalis.Specification.ISpecificationBuilder{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Boolean)">
+            <summary>
+            Specify the query result will be ordered by <paramref name="orderExpression"/> in a descending order
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="specificationBuilder"></param>
+            <param name="orderExpression"></param>
+            <param name="condition">If false, the expression won't be added. The whole Order chain will be discarded.</param>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.Include``2(Ardalis.Specification.ISpecificationBuilder{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Specify an include expression.
+            This information is utilized to build Include function in the query, which ORM tools like Entity Framework use
+            to include related entities (via navigation properties) in the query result.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TProperty"></typeparam>
+            <param name="specificationBuilder"></param>
+            <param name="includeExpression"></param>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.Include``2(Ardalis.Specification.ISpecificationBuilder{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Boolean)">
+            <summary>
+            Specify an include expression.
+            This information is utilized to build Include function in the query, which ORM tools like Entity Framework use
+            to include related entities (via navigation properties) in the query result.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TProperty"></typeparam>
+            <param name="specificationBuilder"></param>
+            <param name="includeExpression"></param>
+            <param name="condition">If false, the expression won't be added. The whole Include chain will be discarded.</param>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.Include``1(Ardalis.Specification.ISpecificationBuilder{``0},System.String)">
+            <summary>
+            Specify a collection of navigation properties, as strings, to include in the query.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="specificationBuilder"></param>
+            <param name="includeString"></param>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.Include``1(Ardalis.Specification.ISpecificationBuilder{``0},System.String,System.Boolean)">
+            <summary>
+            Specify a collection of navigation properties, as strings, to include in the query.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="specificationBuilder"></param>
+            <param name="includeString"></param>
+            <param name="condition">If false, the include expression won't be added.</param>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.Search``1(Ardalis.Specification.ISpecificationBuilder{``0},System.Linq.Expressions.Expression{System.Func{``0,System.String}},System.String,System.Int32)">
+            <summary>
+            Specify a 'SQL LIKE' operations for search purposes
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="specificationBuilder"></param>
+            <param name="selector">the property to apply the SQL LIKE against</param>
+            <param name="searchTerm">the value to use for the SQL LIKE</param>
+            <param name="searchGroup">the index used to group sets of Selectors and SearchTerms together</param>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.Search``1(Ardalis.Specification.ISpecificationBuilder{``0},System.Linq.Expressions.Expression{System.Func{``0,System.String}},System.String,System.Boolean,System.Int32)">
+            <summary>
+            Specify a 'SQL LIKE' operations for search purposes
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="specificationBuilder"></param>
+            <param name="selector">the property to apply the SQL LIKE against</param>
+            <param name="searchTerm">the value to use for the SQL LIKE</param>
+            <param name="condition">If false, the expression won't be added.</param>
+            <param name="searchGroup">the index used to group sets of Selectors and SearchTerms together</param>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.Take``1(Ardalis.Specification.ISpecificationBuilder{``0},System.Int32)">
+            <summary>
+            Specify the number of elements to return.
+            </summary>
+            <param name="specificationBuilder"></param>
+            <param name="take">number of elements to take</param>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.Take``1(Ardalis.Specification.ISpecificationBuilder{``0},System.Int32,System.Boolean)">
+            <summary>
+            Specify the number of elements to return.
+            </summary>
+            <param name="specificationBuilder"></param>
+            <param name="take">number of elements to take</param>
+            <param name="condition">If false, the value will be discarded.</param>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.Skip``1(Ardalis.Specification.ISpecificationBuilder{``0},System.Int32)">
+            <summary>
+            Specify the number of elements to skip before returning the remaining elements.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="specificationBuilder"></param>
+            <param name="skip">number of elements to skip</param>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.Skip``1(Ardalis.Specification.ISpecificationBuilder{``0},System.Int32,System.Boolean)">
+            <summary>
+            Specify the number of elements to skip before returning the remaining elements.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="specificationBuilder"></param>
+            <param name="skip">number of elements to skip</param>
+            <param name="condition">If false, the value will be discarded.</param>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.Select``2(Ardalis.Specification.ISpecificationBuilder{``0,``1},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Specify a transform function to apply to the <typeparamref name="T"/> element 
+            to produce another <typeparamref name="TResult"/> element.
+            </summary>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.PostProcessingAction``1(Ardalis.Specification.ISpecificationBuilder{``0},System.Func{System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0}})">
+            <summary>
+            Specify a transform function to apply to the result of the query 
+            and returns the same <typeparamref name="T"/> type
+            </summary>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.PostProcessingAction``2(Ardalis.Specification.ISpecificationBuilder{``0,``1},System.Func{System.Collections.Generic.IEnumerable{``1},System.Collections.Generic.IEnumerable{``1}})">
+            <summary>
+            Specify a transform function to apply to the result of the query.
+            and returns another <typeparamref name="TResult"/> type
+            </summary>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.EnableCache``1(Ardalis.Specification.ISpecificationBuilder{``0},System.String,System.Object[])">
+            <summary>
+            Must be called after specifying criteria
+            </summary>
+            <param name="specificationName"></param>
+            <param name="args">Any arguments used in defining the specification</param>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.EnableCache``1(Ardalis.Specification.ISpecificationBuilder{``0},System.String,System.Boolean,System.Object[])">
+            <summary>
+            Must be called after specifying criteria
+            </summary>
+            <param name="specificationName"></param>
+            <param name="args">Any arguments used in defining the specification</param>
+            <param name="condition">If false, the caching won't be enabled.</param>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.AsNoTracking``1(Ardalis.Specification.ISpecificationBuilder{``0})">
+            <summary>
+            If the entity instances are modified, this will not be detected
+            by the change tracker.
+            </summary>
+            <param name="specificationBuilder"></param>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.AsNoTracking``1(Ardalis.Specification.ISpecificationBuilder{``0},System.Boolean)">
+            <summary>
+            If the entity instances are modified, this will not be detected
+            by the change tracker.
+            </summary>
+            <param name="specificationBuilder"></param>
+            <param name="condition">If false, the setting will be discarded.</param>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.AsSplitQuery``1(Ardalis.Specification.ISpecificationBuilder{``0})">
+            <summary>
+            The generated sql query will be split into multiple SQL queries
+            </summary>
+            <remarks>
+            This feature was introduced in EF Core 5.0. It only works when using Include
+            for more info: https://docs.microsoft.com/en-us/ef/core/querying/single-split-queries
+            </remarks>
+            <typeparam name="T"></typeparam>
+            <param name="specificationBuilder"></param>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.AsSplitQuery``1(Ardalis.Specification.ISpecificationBuilder{``0},System.Boolean)">
+            <summary>
+            The generated sql query will be split into multiple SQL queries
+            </summary>
+            <remarks>
+            This feature was introduced in EF Core 5.0. It only works when using Include
+            for more info: https://docs.microsoft.com/en-us/ef/core/querying/single-split-queries
+            </remarks>
+            <typeparam name="T"></typeparam>
+            <param name="specificationBuilder"></param>
+            <param name="condition">If false, the setting will be discarded.</param>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.AsNoTrackingWithIdentityResolution``1(Ardalis.Specification.ISpecificationBuilder{``0})">
+            <summary>
+            The query will then keep track of returned instances 
+            (without tracking them in the normal way) 
+            and ensure no duplicates are created in the query results
+            </summary>
+            <remarks>
+            for more info: https://docs.microsoft.com/en-us/ef/core/change-tracking/identity-resolution#identity-resolution-and-queries
+            </remarks>
+            <typeparam name="T"></typeparam>
+            <param name="specificationBuilder"></param>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.AsNoTrackingWithIdentityResolution``1(Ardalis.Specification.ISpecificationBuilder{``0},System.Boolean)">
+            <summary>
+            The query will then keep track of returned instances 
+            (without tracking them in the normal way) 
+            and ensure no duplicates are created in the query results
+            </summary>
+            <remarks>
+            for more info: https://docs.microsoft.com/en-us/ef/core/change-tracking/identity-resolution#identity-resolution-and-queries
+            </remarks>
+            <typeparam name="T"></typeparam>
+            <param name="specificationBuilder"></param>
+            <param name="condition">If false, the setting will be discarded.</param>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.IgnoreQueryFilters``1(Ardalis.Specification.ISpecificationBuilder{``0})">
+            <summary>
+            The query will ignore the defined global query filters
+            </summary>
+            <remarks>
+            for more info: https://docs.microsoft.com/en-us/ef/core/querying/filters
+            </remarks>
+            <typeparam name="T"></typeparam>
+            <param name="specificationBuilder"></param>
+        </member>
+        <member name="M:Ardalis.Specification.SpecificationBuilderExtensions.IgnoreQueryFilters``1(Ardalis.Specification.ISpecificationBuilder{``0},System.Boolean)">
+            <summary>
+            The query will ignore the defined global query filters
+            </summary>
+            <remarks>
+            for more info: https://docs.microsoft.com/en-us/ef/core/querying/filters
+            </remarks>
+            <typeparam name="T"></typeparam>
+            <param name="specificationBuilder"></param>
+            <param name="condition">If false, the setting will be discarded.</param>
+        </member>
+        <member name="T:Ardalis.Specification.ISpecificationEvaluator">
+            <summary>
+            Evaluates the logic encapsulated by an <see cref="T:Ardalis.Specification.ISpecification`1"/>.
+            </summary>
+        </member>
+        <member name="M:Ardalis.Specification.ISpecificationEvaluator.GetQuery``2(System.Linq.IQueryable{``0},Ardalis.Specification.ISpecification{``0,``1})">
+            <summary>
+            Applies the logic encapsulated by <paramref name="specification"/> to given <paramref name="inputQuery"/>,
+            and projects the result into <typeparamref name="TResult"/>.
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <param name="inputQuery">The sequence of <typeparamref name="T"/></param>
+            <param name="specification">The encapsulated query logic.</param>
+            <returns>A filtered sequence of <typeparamref name="TResult"/></returns>
+        </member>
+        <member name="M:Ardalis.Specification.ISpecificationEvaluator.GetQuery``1(System.Linq.IQueryable{``0},Ardalis.Specification.ISpecification{``0},System.Boolean)">
+            <summary>
+            Applies the logic encapsulated by <paramref name="specification"/> to given <paramref name="inputQuery"/>.
+            </summary>
+            <param name="inputQuery">The sequence of <typeparamref name="T"/></param>
+            <param name="specification">The encapsulated query logic.</param>
+            <returns>A filtered sequence of <typeparamref name="T"/></returns>
+        </member>
+        <member name="T:Ardalis.Specification.IncludeExpressionInfo">
+            <summary>
+            Encapsulates data needed to build Include/ThenInclude query.
+            </summary>
+        </member>
+        <member name="P:Ardalis.Specification.IncludeExpressionInfo.LambdaExpression">
+            <summary>
+            If <see cref="P:Ardalis.Specification.IncludeExpressionInfo.Type" /> is <see cref="F:Ardalis.Specification.IncludeTypeEnum.Include" />, represents a related entity that should be included.<para />
+            If <see cref="P:Ardalis.Specification.IncludeExpressionInfo.Type" /> is <see cref="F:Ardalis.Specification.IncludeTypeEnum.ThenInclude" />, represents a related entity that should be included as part of the previously included entity.
+            </summary>
+        </member>
+        <member name="P:Ardalis.Specification.IncludeExpressionInfo.EntityType">
+            <summary>
+            The type of the source entity.
+            </summary>
+        </member>
+        <member name="P:Ardalis.Specification.IncludeExpressionInfo.PropertyType">
+            <summary>
+            The type of the included entity.
+            </summary>
+        </member>
+        <member name="P:Ardalis.Specification.IncludeExpressionInfo.PreviousPropertyType">
+            <summary>
+            The type of the previously included entity.
+            </summary>
+        </member>
+        <member name="P:Ardalis.Specification.IncludeExpressionInfo.Type">
+            <summary>
+            The include type.
+            </summary>
+        </member>
+        <member name="M:Ardalis.Specification.IncludeExpressionInfo.#ctor(System.Linq.Expressions.LambdaExpression,System.Type,System.Type)">
+            <summary>
+            Creates instance of <see cref="T:Ardalis.Specification.IncludeExpressionInfo" /> which describes 'Include' query part.<para />
+            Source (entityType) -> Include (propertyType).
+            </summary>
+            <param name="expression">The expression represents a related entity that should be included.</param>
+            <param name="entityType">The type of the source entity.</param>
+            <param name="propertyType">The type of the included entity.</param>
+        </member>
+        <member name="M:Ardalis.Specification.IncludeExpressionInfo.#ctor(System.Linq.Expressions.LambdaExpression,System.Type,System.Type,System.Type)">
+            <summary>
+            Creates instance of <see cref="T:Ardalis.Specification.IncludeExpressionInfo" /> which describes 'ThenInclude' query part.<para />
+            Source (entityType) -> Include (previousPropertyType) -> ThenInclude (propertyType).
+            </summary>
+            <param name="expression">The expression represents a related entity that should be included as part of the previously included entity.</param>
+            <param name="entityType">The type of the source entity.</param>
+            <param name="propertyType">The type of the included entity.</param>
+            <param name="previousPropertyType">The type of the previously included entity.</param>
+        </member>
+        <member name="T:Ardalis.Specification.OrderExpressionInfo`1">
+            <summary>
+            Encapsulates data needed to perform sorting.
+            </summary>
+            <typeparam name="T">Type of the entity to apply sort on.</typeparam>
+        </member>
+        <member name="M:Ardalis.Specification.OrderExpressionInfo`1.#ctor(System.Linq.Expressions.Expression{System.Func{`0,System.Object}},Ardalis.Specification.OrderTypeEnum)">
+            <summary>
+            Creates instance of <see cref="T:Ardalis.Specification.OrderExpressionInfo`1" />.
+            </summary>
+            <param name="keySelector">A function to extract a key from an element.</param>
+            <param name="orderType">Whether to (subsequently) sort ascending or descending.</param>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="keySelector"/> is null.</exception>
+        </member>
+        <member name="P:Ardalis.Specification.OrderExpressionInfo`1.KeySelector">
+            <summary>
+            A function to extract a key from an element.
+            </summary>
+        </member>
+        <member name="P:Ardalis.Specification.OrderExpressionInfo`1.OrderType">
+            <summary>
+            Whether to (subsequently) sort ascending or descending.
+            </summary>
+        </member>
+        <member name="P:Ardalis.Specification.OrderExpressionInfo`1.KeySelectorFunc">
+            <summary>
+            Compiled <see cref="P:Ardalis.Specification.OrderExpressionInfo`1.KeySelector" />.
+            </summary>
+        </member>
+        <member name="T:Ardalis.Specification.SearchExpressionInfo`1">
+            <summary>
+            Encapsulates data needed to perform 'SQL LIKE' operation.
+            </summary>
+            <typeparam name="T">Type of the source from which search target should be selected.</typeparam>
+        </member>
+        <member name="M:Ardalis.Specification.SearchExpressionInfo`1.#ctor(System.Linq.Expressions.Expression{System.Func{`0,System.String}},System.String,System.Int32)">
+            <summary>
+            Creates instance of <see cref="T:Ardalis.Specification.SearchExpressionInfo`1" />.
+            </summary>
+            <param name="selector">The property to apply the SQL LIKE against.</param>
+            <param name="searchTerm">The value to use for the SQL LIKE.</param>
+            <param name="searchGroup">The index used to group sets of Selectors and SearchTerms together.</param>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="selector"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">If <paramref name="searchTerm"/> is null or empty.</exception>
+        </member>
+        <member name="P:Ardalis.Specification.SearchExpressionInfo`1.Selector">
+            <summary>
+            The property to apply the SQL LIKE against.
+            </summary>
+        </member>
+        <member name="P:Ardalis.Specification.SearchExpressionInfo`1.SearchTerm">
+            <summary>
+            The value to use for the SQL LIKE.
+            </summary>
+        </member>
+        <member name="P:Ardalis.Specification.SearchExpressionInfo`1.SearchGroup">
+            <summary>
+            The index used to group sets of Selectors and SearchTerms together.
+            </summary>
+        </member>
+        <member name="P:Ardalis.Specification.SearchExpressionInfo`1.SelectorFunc">
+            <summary>
+            Compiled <see cref="P:Ardalis.Specification.SearchExpressionInfo`1.Selector" />.
+            </summary>
+        </member>
+        <member name="T:Ardalis.Specification.WhereExpressionInfo`1">
+            <summary>
+            Encapsulates data needed to perform filtering.
+            </summary>
+            <typeparam name="T">Type of the entity to apply filter on.</typeparam>
+        </member>
+        <member name="M:Ardalis.Specification.WhereExpressionInfo`1.#ctor(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Creates instance of <see cref="T:Ardalis.Specification.WhereExpressionInfo`1" />.
+            </summary>
+            <param name="filter">Condition which should be satisfied by instances of <typeparamref name="T"/>.</param>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="filter"/> is null.</exception>
+        </member>
+        <member name="P:Ardalis.Specification.WhereExpressionInfo`1.Filter">
+            <summary>
+            Condition which should be satisfied by instances of <typeparamref name="T"/>.
+            </summary>
+        </member>
+        <member name="P:Ardalis.Specification.WhereExpressionInfo`1.FilterFunc">
+            <summary>
+            Compiled <see cref="P:Ardalis.Specification.WhereExpressionInfo`1.Filter" />.
+            </summary>
+        </member>
+        <member name="T:Ardalis.Specification.IReadRepositoryBase`1">
+            <summary>
+            <para>
+            A <see cref="T:Ardalis.Specification.IRepositoryBase`1" /> can be used to query instances of <typeparamref name="T" />.
+            An <see cref="T:Ardalis.Specification.ISpecification`1"/> (or derived) is used to encapsulate the LINQ queries against the database.
+            </para>
+            </summary>
+            <typeparam name="T">The type of entity being operated on by this repository.</typeparam>
+        </member>
+        <member name="M:Ardalis.Specification.IReadRepositoryBase`1.GetByIdAsync``1(``0,System.Threading.CancellationToken)">
+            <summary>
+            Finds an entity with the given primary key value.
+            </summary>
+            <typeparam name="TId">The type of primary key.</typeparam>
+            <param name="id">The value of the primary key for the entity to be found.</param>
+            <returns>
+            A task that represents the asynchronous operation.
+            The task result contains the <typeparamref name="T" />, or <see langword="null"/>.
+            </returns>
+        </member>
+        <member name="M:Ardalis.Specification.IReadRepositoryBase`1.GetBySpecAsync``1(``0,System.Threading.CancellationToken)">
+            <summary>
+            Finds an entity that matches the encapsulated query logic of the <paramref name="specification"/>.
+            </summary>
+            <param name="specification">The encapsulated query logic.</param>
+            <returns>
+            A task that represents the asynchronous operation.
+            The task result contains the <typeparamref name="T" />, or <see langword="null"/>.
+            </returns>
+        </member>
+        <member name="M:Ardalis.Specification.IReadRepositoryBase`1.GetBySpecAsync``1(Ardalis.Specification.ISpecification{`0,``0},System.Threading.CancellationToken)">
+            <summary>
+            Finds an entity that matches the encapsulated query logic of the <paramref name="specification"/>.
+            </summary>
+            <typeparam name="TResult">The type of the result.</typeparam>
+            <param name="specification">The encapsulated query logic.</param>
+            <returns>
+            A task that represents the asynchronous operation.
+            The task result contains the <typeparamref name="TResult" />.
+            </returns>
+        </member>
+        <member name="M:Ardalis.Specification.IReadRepositoryBase`1.ListAsync(System.Threading.CancellationToken)">
+            <summary>
+            Finds all entities of <typeparamref name="T" /> from the database.
+            </summary>
+            <returns>
+            A task that represents the asynchronous operation.
+            The task result contains a <see cref="T:System.Collections.Generic.List`1" /> that contains elements from the input sequence.
+            </returns>
+        </member>
+        <member name="M:Ardalis.Specification.IReadRepositoryBase`1.ListAsync(Ardalis.Specification.ISpecification{`0},System.Threading.CancellationToken)">
+            <summary>
+            Finds all entities of <typeparamref name="T" />, that matches the encapsulated query logic of the
+            <paramref name="specification"/>, from the database.
+            </summary>
+            <param name="specification">The encapsulated query logic.</param>
+            <returns>
+            A task that represents the asynchronous operation.
+            The task result contains a <see cref="T:System.Collections.Generic.List`1" /> that contains elements from the input sequence.
+            </returns>
+        </member>
+        <member name="M:Ardalis.Specification.IReadRepositoryBase`1.ListAsync``1(Ardalis.Specification.ISpecification{`0,``0},System.Threading.CancellationToken)">
+            <summary>
+            Finds all entities of <typeparamref name="T" />, that matches the encapsulated query logic of the
+            <paramref name="specification"/>, from the database.
+            <para>
+            Projects each entity into a new form, being <typeparamref name="TResult" />.
+            </para>
+            </summary>
+            <typeparam name="TResult">The type of the value returned by the projection.</typeparam>
+            <param name="specification">The encapsulated query logic.</param>
+            <returns>
+            A task that represents the asynchronous operation.
+            The task result contains a <see cref="T:System.Collections.Generic.List`1" /> that contains elements from the input sequence.
+            </returns>
+        </member>
+        <member name="M:Ardalis.Specification.IReadRepositoryBase`1.CountAsync(Ardalis.Specification.ISpecification{`0},System.Threading.CancellationToken)">
+            <summary>
+            Returns a number that represents how many entities satisfy the encapsulated query logic
+            of the <paramref name="specification"/>.
+            </summary>
+            <param name="specification">The encapsulated query logic.</param>
+            <returns>
+            A task that represents the asynchronous operation. The task result contains the
+            number of elements in the input sequence.
+            </returns>
+        </member>
+        <member name="M:Ardalis.Specification.IReadRepositoryBase`1.CountAsync(System.Threading.CancellationToken)">
+            <summary>
+            Returns the total number of records.
+            </summary>
+            <returns>
+            A task that represents the asynchronous operation. The task result contains the
+            number of elements in the input sequence.
+            </returns>
+        </member>
+        <member name="M:Ardalis.Specification.IReadRepositoryBase`1.AnyAsync(Ardalis.Specification.ISpecification{`0},System.Threading.CancellationToken)">
+            <summary>
+            Returns a boolean that represents whether any entity satisfy the encapsulated query logic
+            of the <paramref name="specification"/> or not.
+            </summary>
+            <param name="specification">The encapsulated query logic.</param>
+            <returns>
+            A task that represents the asynchronous operation. The task result contains true if the 
+            source sequence contains any elements; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Ardalis.Specification.IReadRepositoryBase`1.AnyAsync(System.Threading.CancellationToken)">
+            <summary>
+            Returns a boolean whether any entity exists or not.
+            </summary>
+            <returns>
+            A task that represents the asynchronous operation. The task result contains true if the 
+            source sequence contains any elements; otherwise, false.
+            </returns>
+        </member>
+        <member name="T:Ardalis.Specification.IRepositoryBase`1">
+            <summary>
+            <para>
+            A <see cref="T:Ardalis.Specification.IRepositoryBase`1" /> can be used to query and save instances of <typeparamref name="T" />.
+            An <see cref="T:Ardalis.Specification.ISpecification`1"/> (or derived) is used to encapsulate the LINQ queries against the database.
+            </para>
+            </summary>
+            <typeparam name="T">The type of entity being operated on by this repository.</typeparam>
+        </member>
+        <member name="M:Ardalis.Specification.IRepositoryBase`1.AddAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Adds an entity in the database.
+            </summary>
+            <param name="entity">The entity to add.</param>
+            <returns>
+            A task that represents the asynchronous operation.
+            The task result contains the <typeparamref name="T" />.
+            </returns>
+        </member>
+        <member name="M:Ardalis.Specification.IRepositoryBase`1.UpdateAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Updates an entity in the database
+            </summary>
+            <param name="entity">The entity to update.</param>
+            <returns>A task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Ardalis.Specification.IRepositoryBase`1.DeleteAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Removes an entity in the database
+            </summary>
+            <param name="entity">The entity to delete.</param>
+            <returns>A task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Ardalis.Specification.IRepositoryBase`1.DeleteRangeAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)">
+            <summary>
+            Removes the given entities in the database
+            </summary>
+            <param name="entities">The entities to remove.</param>
+            <returns>A task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Ardalis.Specification.IRepositoryBase`1.SaveChangesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Persists changes to the database.
+            </summary>
+            <returns>A task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="T:Ardalis.Specification.ISingleResultSpecification">
+            <summary>
+            A marker interface for specifications that are meant to return a single entity. Used to constrain methods
+            that accept a Specification and return a single result rather than a collection of results
+            </summary>
+        </member>
+        <member name="T:Ardalis.Specification.ISpecification`2">
+            <summary>
+            Encapsulates query logic for <typeparamref name="T"/>,
+            and projects the result into <typeparamref name="TResult"/>.
+            </summary>
+            <typeparam name="T">The type being queried against.</typeparam>
+            <typeparam name="TResult">The type of the result.</typeparam>
+        </member>
+        <member name="P:Ardalis.Specification.ISpecification`2.Selector">
+            <summary>
+            The transform function to apply to the <typeparamref name="T"/> element.
+            </summary>
+        </member>
+        <member name="P:Ardalis.Specification.ISpecification`2.PostProcessingAction">
+            <summary>
+            The transform function to apply to the result of the query encapsulated by the <see cref="T:Ardalis.Specification.ISpecification`2"/>.
+            </summary>
+        </member>
+        <member name="T:Ardalis.Specification.ISpecification`1">
+            <summary>
+            Encapsulates query logic for <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">The type being queried against.</typeparam>
+        </member>
+        <member name="P:Ardalis.Specification.ISpecification`1.WhereExpressions">
+            <summary>
+            The collection of filters.
+            </summary>
+        </member>
+        <member name="P:Ardalis.Specification.ISpecification`1.OrderExpressions">
+            <summary>
+            The collections of functions used to determine the sorting (and subsequent sorting),
+            to apply to the result of the query encapsulated by the <see cref="T:Ardalis.Specification.ISpecification`1"/>.
+            </summary>
+        </member>
+        <member name="P:Ardalis.Specification.ISpecification`1.IncludeExpressions">
+            <summary>
+            The collection of <see cref="T:Ardalis.Specification.IncludeExpressionInfo"/>s describing each include expression.
+            This information is utilized to build Include/ThenInclude functions in the query.
+            </summary>
+        </member>
+        <member name="P:Ardalis.Specification.ISpecification`1.IncludeStrings">
+            <summary>
+            The collection of navigation properties, as strings, to include in the query.
+            </summary>
+        </member>
+        <member name="P:Ardalis.Specification.ISpecification`1.SearchCriterias">
+            <summary>
+            The collection of 'SQL LIKE' operations.
+            </summary>
+        </member>
+        <member name="P:Ardalis.Specification.ISpecification`1.Take">
+            <summary>
+            The number of elements to return.
+            </summary>
+        </member>
+        <member name="P:Ardalis.Specification.ISpecification`1.Skip">
+            <summary>
+            The number of elements to skip before returning the remaining elements.
+            </summary>
+        </member>
+        <member name="P:Ardalis.Specification.ISpecification`1.PostProcessingAction">
+            <summary>
+            The transform function to apply to the result of the query encapsulated by the <see cref="T:Ardalis.Specification.ISpecification`1"/>.
+            </summary>
+        </member>
+        <member name="P:Ardalis.Specification.ISpecification`1.CacheEnabled">
+            <summary>
+            Return whether or not the results should be cached.
+            </summary>
+        </member>
+        <member name="P:Ardalis.Specification.ISpecification`1.CacheKey">
+            <summary>
+            The identifier to use to store and retrieve results from the cache.
+            </summary>
+        </member>
+        <member name="P:Ardalis.Specification.ISpecification`1.AsNoTracking">
+            <summary>
+            Returns whether or not the change tracker will track any of the entities
+            that are returned. When true, if the entity instances are modified, this will not be detected
+            by the change tracker.
+            </summary>
+        </member>
+        <member name="P:Ardalis.Specification.ISpecification`1.AsSplitQuery">
+            <summary>
+            Returns whether or not the generated sql query should be split into multiple SQL queries
+            </summary>
+            <remarks>
+            This feature was introduced in EF Core 5.0. It only works when using Include
+            for more info: https://docs.microsoft.com/en-us/ef/core/querying/single-split-queries
+            </remarks>
+        </member>
+        <member name="P:Ardalis.Specification.ISpecification`1.AsNoTrackingWithIdentityResolution">
+            <summary>
+            Returns whether or not the query will then keep track of returned instances 
+            (without tracking them in the normal way) 
+            and ensure no duplicates are created in the query results
+            </summary>
+            <remarks>
+            for more info: https://docs.microsoft.com/en-us/ef/core/change-tracking/identity-resolution#identity-resolution-and-queries
+            </remarks>
+        </member>
+        <member name="P:Ardalis.Specification.ISpecification`1.IgnoreQueryFilters">
+            <summary>
+            Returns whether or not the query should ignore the defined global query filters 
+            </summary>
+            <remarks>
+            for more info: https://docs.microsoft.com/en-us/ef/core/querying/filters
+            </remarks>
+        </member>
+        <member name="M:Ardalis.Specification.ISpecification`1.Evaluate(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Applies the query defined within the specification to the given objects.
+            This is specially helpful when unit testing specification classes
+            </summary>
+            <param name="entities">the list of entities to which the specification will be applied</param>
+            <returns></returns>
+        </member>
+        <member name="M:Ardalis.Specification.ISpecification`1.IsSatisfiedBy(`0)">
+            <summary>
+            It returns whether the given entity satisfies the conditions of the specification.
+            </summary>
+            <param name="entity">The entity to be validated</param>
+            <returns></returns>
+        </member>
+        <member name="T:Ardalis.Specification.OrderTypeEnum">
+            <summary>
+            Whether to (subsequently) sort ascending or descending.
+            </summary>
+        </member>
+        <member name="T:Ardalis.Specification.Specification`2">
+            <inheritdoc cref="T:Ardalis.Specification.ISpecification`2"/>
+        </member>
+        <member name="P:Ardalis.Specification.Specification`2.Selector">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ardalis.Specification.Specification`2.PostProcessingAction">
+            <inheritdoc/>
+        </member>
+        <member name="T:Ardalis.Specification.Specification`1">
+            <inheritdoc cref="T:Ardalis.Specification.ISpecification`1"/>
+        </member>
+        <member name="M:Ardalis.Specification.Specification`1.Evaluate(System.Collections.Generic.IEnumerable{`0})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Ardalis.Specification.Specification`1.IsSatisfiedBy(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ardalis.Specification.Specification`1.WhereExpressions">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ardalis.Specification.Specification`1.IncludeExpressions">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ardalis.Specification.Specification`1.IncludeStrings">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ardalis.Specification.Specification`1.SearchCriterias">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ardalis.Specification.Specification`1.Take">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ardalis.Specification.Specification`1.Skip">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ardalis.Specification.Specification`1.PostProcessingAction">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ardalis.Specification.Specification`1.CacheKey">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ardalis.Specification.Specification`1.CacheEnabled">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ardalis.Specification.Specification`1.AsNoTracking">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ardalis.Specification.Specification`1.AsSplitQuery">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ardalis.Specification.Specification`1.AsNoTrackingWithIdentityResolution">
+            <inheritdoc/>
+        </member>
+        <member name="P:Ardalis.Specification.Specification`1.IgnoreQueryFilters">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>
