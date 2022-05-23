@@ -13,22 +13,22 @@ public class ProductOption : BaseEntity
     
     
     // Properties
-    public string Option { get; private set; }
+    public string Name { get; private set; }
 
     
     
     // Constructors
-    private ProductOption(string option)
+    private ProductOption(string name)
     {
-        Option = Guard.Against.NullOrEmpty(option);
+        Name = Guard.Against.NullOrEmpty(name);
     }
     
-    public ProductOption(string option, string value) :this(option)
+    public ProductOption(string name, ProductOptionValue productOptionValue) :this(name)
     {
-        AddProductOptionValue(new ProductOptionValue(value));
+        AddProductOptionValue(productOptionValue);
     }
     
-    public ProductOption(string option, List<ProductOptionValue> values) :this(option)
+    public ProductOption(string name, List<ProductOptionValue> values) :this(name)
     {
         AddProductOptionValue(values);
     }
@@ -58,6 +58,6 @@ public class ProductOption : BaseEntity
     {
         Guard.Against.Null(product);
         Product = product;
-        ProductId = ProductId;
+        ProductId = product.Id;
     }
 }

@@ -8,7 +8,7 @@ public class ProductOptionConfig : IEntityTypeConfiguration<ProductOption>
     public void Configure(EntityTypeBuilder<ProductOption> builder)
     {
         // Properties
-        builder.Property(x => x.Option)
+        builder.Property(x => x.Name)
             .IsRequired();
 
 

@@ -35,8 +35,22 @@ public static class SeedData
         RemoveFromDb(dbContext, dbContext.ProductImages);
 
         dbContext.SaveChanges();
-        
-        
+
+
+        foreach (var product in SeedProducts)
+        {
+            Console.WriteLine(product.Id.ToString());
+
+            foreach (var variant in product.ProductVariants)
+            {
+                Console.WriteLine("\t" + variant.ProductId);
+
+                foreach (var option in variant.ProductOptionValues)
+                {
+                    Console.WriteLine("\t" + option.ProductOption.ProductId);
+                }
+            }
+        }
         // Adding Data
         dbContext.Products.AddRange(SeedProducts);
        
@@ -71,46 +85,21 @@ public static class SeedData
           new Brand("Lipton"),
       };
 
-    public static readonly ProductOptionValue[] SeedProductOptionValues =
+    public static readonly ProductOption[] SeedProductOptions = new ProductOption[2]
     {
-        new ProductOptionValue("S"),
-        new ProductOptionValue("M"),
-        new ProductOptionValue("Rubber"),
-        new ProductOptionValue("Metal"),
-    };
-    
-    public static readonly ProductOption[] SeedProductOptions = new ProductOption[5]
-    {
-        new ProductOption("Color", "Yellow"),
-        new ProductOption("Size", "Big"),
-        new ProductOption("Color", new List<ProductOptionValue>()
-        {
-            new ProductOptionValue("Yellow"),
-            new ProductOptionValue("Blue"),
-            new ProductOptionValue("Orange"),
-        }),
         new ProductOption("Size", new List<ProductOptionValue>()
         {
-            SeedProductOptionValues[0],
-            SeedProductOptionValues[1],
+            new ProductOptionValue("S"),
+            new ProductOptionValue("M"),
         }),
         new ProductOption("Material", new List<ProductOptionValue>()
         {
-            SeedProductOptionValues[2],
-            SeedProductOptionValues[3],
-
+            new ProductOptionValue("Rubber"),
+            new ProductOptionValue("Metal"),
         }),
     };
 
-    public static readonly ProductVariant[] SeedProductVariants = new ProductVariant[4]
-    {
-        new ProductVariant( 20, 50, SeedProductOptions[0].Values.First()),
-        new ProductVariant( 20, 60, SeedProductOptions[1].Values.First()),
-        new ProductVariant( 5, 30, SeedProductOptions[2].Values.First()),
-        new ProductVariant( 5, 30, SeedProductOptions[3].Values.First()),
-    };  
-    
-    
+
     public static readonly Product[] SeedProducts =
     {
         new Product(
@@ -119,63 +108,58 @@ public static class SeedData
             SeedBrands[0],
             SeedCategories[0],
             SeedShops[0],
-            SeedProductVariants[0].Price,
-            SeedProductVariants[0].Quantity),
+            new ProductVariant(20,80)),
         new Product(
             "Coca Cola 200ml Light",
             "Dit is een product beschrijving",
             SeedBrands[1],
             SeedCategories[1],
             SeedShops[1],
-            SeedProductVariants[1].Price,
-            SeedProductVariants[1].Quantity),
+            new ProductVariant(30,50)),
         new Product(
             "Coca Cola 200ml Light",
             "Dit is een product beschrijving",
             SeedBrands[2],
             SeedCategories[2],
             SeedShops[2],
-            SeedProductVariants[2].Price,
-            SeedProductVariants[2].Quantity),
+            new ProductVariant(50,60)),
         new Product(
             "Coca Cola 200ml Light",
             "Dit is een product beschrijving",
             SeedBrands[3],
             SeedCategories[3],
             SeedShops[3],
-            SeedProductVariants[3].Price,
-            SeedProductVariants[3].Quantity),
-        // new Product(
-        //     "Coca Cola 200ml Light",
-        //     "Dit is een product beschrijving",
-        //     SeedBrands[4],
-        //     SeedCategories[4],
-        //     SeedShops[4],
-        //     new List<ProductVariant>()
-        //     {
-        //         new ProductVariant( 40, 90, new List<ProductOptionValue>()
-        //         {
-        //             SeedProductOptions[3].Values.First(),
-        //             SeedProductOptions[4].Values.First(),
-        //         }),
-        //         // new ProductVariant( 40, 90, new List<ProductOptionValue>()
-        //         // {
-        //         //     SeedProductOptionValues[0],
-        //         //     SeedProductOptionValues[3],
-        //         // }),
-        //         // new ProductVariant( 40, 90, new List<ProductOptionValue>()
-        //         // {
-        //         //     SeedProductOptionValues[1],
-        //         //     SeedProductOptionValues[2],
-        //         // }),
-        //         // new ProductVariant( 40, 90, new List<ProductOptionValue>()
-        //         // {
-        //         //     SeedProductOptionValues[1],
-        //         //     SeedProductOptionValues[3],
-        //         // }),
-        //     }),
+            new ProductVariant(10,90)),
+        new Product(
+            "Coca Cola 200ml Light",
+            "Dit is een product beschrijving",
+            SeedBrands[4],
+            SeedCategories[4],
+            SeedShops[4],
+            new List<ProductVariant>()
+            {
+                new ProductVariant( 40, 90, new List<ProductOptionValue>()
+                {
+                    SeedProductOptions[0].Values.First(),
+                    SeedProductOptions[1].Values.First(),
+                }),
+                new ProductVariant( 40, 90, new List<ProductOptionValue>()
+                {
+                    SeedProductOptions[0].Values.First(),
+                    SeedProductOptions[1].Values.Last(),
+                }),
+                new ProductVariant( 40, 90, new List<ProductOptionValue>()
+                {
+                    SeedProductOptions[0].Values.Last(),
+                    SeedProductOptions[1].Values.First(),
+                }),
+                new ProductVariant( 40, 90, new List<ProductOptionValue>()
+                {
+                    SeedProductOptions[0].Values.Last(),
+                    SeedProductOptions[1].Values.Last(),
+                }),
+            })
     };
-
 
     
     

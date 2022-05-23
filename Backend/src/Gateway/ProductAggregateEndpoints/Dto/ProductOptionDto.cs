@@ -8,7 +8,7 @@ public class ProductOptionDto
 
     public ProductOptionDto(ProductOption productOption)
     {
-        Option = productOption.Option;
+        Option = productOption.Name;
         Values = productOption.Values.Select(x=> x.Value);
     }
 }

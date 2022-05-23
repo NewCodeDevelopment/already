@@ -31,8 +31,7 @@ public class AppDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, 
     public DbSet<ProductVariant> ProductVariants => Set<ProductVariant>();
     public DbSet<ProductOption> ProductOptions => Set<ProductOption>();
     public DbSet<ProductOptionValue> ProductOptionValues => Set<ProductOptionValue>();
-    
-    
+
     public DbSet<Brand> Brands => Set<Brand>();
     public DbSet<Shop> Shops => Set<Shop>();
     public DbSet<Category> Categories => Set<Category>();
@@ -57,7 +56,7 @@ public class AppDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, 
                 .Property("Id")
                 .HasColumnName("Id")
                 .HasColumnType("uuid")
-                .HasDefaultValueSql("uuid_generate_v4()")
+                // .HasDefaultValueSql("uuid_generate_v4()")
                 .IsRequired();
 
             entity

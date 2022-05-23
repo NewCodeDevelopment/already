@@ -55,12 +55,11 @@ public class Product : BaseEntity, IAggregateRoot
         shop.AddProduct(this);
     }
     
-    public Product(string title, string description, Brand brand, Category category, Shop shop, double price, int quantity)
+    public Product(string title, string description, Brand brand, Category category, Shop shop, ProductVariant productVariant)
         :this(title, description, brand, category, shop)
     {
-        Guard.Against.NegativeOrZero(price, nameof(price));
-        Guard.Against.Negative(quantity, nameof(quantity));
-        AddProductVariant(new ProductVariant(price, quantity));
+        Guard.Against.Null(productVariant, nameof(productVariant));
+        AddProductVariant(productVariant);
     }
 
     public Product(string title, string description, Brand brand, Category category, Shop shop, List<ProductVariant> productVariants)
@@ -68,6 +67,8 @@ public class Product : BaseEntity, IAggregateRoot
     {
         AddProductVariant(productVariants);
     }
+    
+    
     
     
     
@@ -82,8 +83,8 @@ public class Product : BaseEntity, IAggregateRoot
         AddProductOption(productVariant.ProductOptionValues.ToList());
 
         if (HasProductVariant(productVariant)) return;
-        
-        productVariant.SetProduct(this);
+
+        // productVariant.SetProduct(this);
         _productVariants.Add(productVariant);
     }
     
@@ -92,6 +93,26 @@ public class Product : BaseEntity, IAggregateRoot
         foreach (var productVariant in productVariants)
         {
             AddProductVariant(productVariant);
+        }
+    }
+    
+    private void AddProductOption(ProductOption productOption)
+    {
+        Guard.Against.Null(productOption);
+        
+        productOption.SetProduct(this);
+        
+        if (HasProductOption(productOption)) return;
+        _productOptions.Add(productOption);
+    }
+    
+    private void AddProductOption(List<ProductOptionValue> productOptionValues)
+    {
+        foreach (var optionValue in productOptionValues)
+        {
+            if (optionValue.ProductOption == null) throw new Exception("productOption is null");
+           
+            AddProductOption(optionValue.ProductOption);
         }
     }
 
@@ -110,23 +131,7 @@ public class Product : BaseEntity, IAggregateRoot
         }
     }
 
-    private void AddProductOption(ProductOption productOption)
-    {
-        Guard.Against.Null(productOption);
-        
-        if (HasProductOption(productOption)) return;
 
-        productOption.SetProduct(this);
-        _productOptions.Add(productOption);
-    }
-    
-    private void AddProductOption(List<ProductOptionValue> productOptionValues)
-    {
-        foreach (var optionValue in productOptionValues)
-        {
-            AddProductOption(optionValue.ProductOption);
-        }
-    }
     
     
     // Setters

@@ -6,7 +6,7 @@ public class ProductVariant : BaseEntity
 {
     // Relations
     public Guid ProductId { get; private set; }
-    public Product Product { get; private set; } = default!;
+    public Product? Product { get; private set; }
     
     private readonly List<ProductOptionValue> _productOptionValues = new();
     public IReadOnlyCollection<ProductOptionValue> ProductOptionValues => _productOptionValues.AsReadOnly();
@@ -28,16 +28,17 @@ public class ProductVariant : BaseEntity
     }
     
     public ProductVariant(double price, int quantity, ProductOptionValue productOptionValue)
-    : this(price, quantity)
+        :this(price, quantity)
     {
         AddProductOptionValue(productOptionValue);
     }
     
     public ProductVariant(double price, int quantity, List<ProductOptionValue> productOptionValues)
-        : this(price, quantity)
+        :this(price, quantity)
     {
         AddProductOptionValue(productOptionValues);
     }
+    
     
     
     // Add
@@ -52,9 +53,10 @@ public class ProductVariant : BaseEntity
     {
         foreach (var productOptionValue in productOptionValues)
         {
-            _productOptionValues.Add(productOptionValue);
+            AddProductOptionValue(productOptionValue);
         }
     }
+    
     
     
     // Setters
