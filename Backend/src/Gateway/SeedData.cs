@@ -2,13 +2,17 @@ using Core.ProductAggregate;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Shared;
+using Shared.Logger;
 namespace Gateway;
+
+public class SeedDataLog{}
 
 public static class SeedData
 {
-    public static int countOfSeedData = 5;
+    // public static readonly ILoggerAdapter<SeedDataLog> _logger =
+    //     new LoggerAdapter<SeedDataLog>(new Logger<SeedDataLog>(new LoggerFactory()));
 
-    public static void Initialize(IServiceProvider serviceProvider)
+    public static string Initialize(IServiceProvider serviceProvider)
     {
         using (var dbContext = new AppDbContext(
                    serviceProvider.GetRequiredService<DbContextOptions<AppDbContext>>(),
@@ -16,10 +20,12 @@ public static class SeedData
         {
             if (dbContext.Products.Any())
             {
-                return; // DB has been seeded
+                
+                return "DB  has already been seeded"; // DB has been seeded
             }
 
             PopulateTestData(dbContext);
+            return "Successfully seeded";
         }
     }
 
@@ -35,24 +41,10 @@ public static class SeedData
         RemoveFromDb(dbContext, dbContext.ProductImages);
 
         dbContext.SaveChanges();
-
-
-        foreach (var product in SeedProducts)
-        {
-            Console.WriteLine(product.Id.ToString());
-
-            foreach (var variant in product.ProductVariants)
-            {
-                Console.WriteLine("\t" + variant.ProductId);
-
-                foreach (var option in variant.ProductOptionValues)
-                {
-                    Console.WriteLine("\t" + option.ProductOption.ProductId);
-                }
-            }
-        }
+        
         // Adding Data
         dbContext.Products.AddRange(SeedProducts);
+        Console.WriteLine("Product Seeded");
        
 
         dbContext.SaveChanges();

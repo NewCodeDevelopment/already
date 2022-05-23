@@ -2,7 +2,7 @@
 
 namespace Shared.Logger;
 
-public class LoggerAdapter<T> : ILoggerAdapter<T>
+public class LoggerAdapter<T> : ILoggerAdapter<T>, IDisposable
 {
     private ILogger<T> _logger;
 
@@ -179,5 +179,10 @@ public class LoggerAdapter<T> : ILoggerAdapter<T>
         {
             _logger.LogCritical(message, arg0, arg1, arg2);
         }
+    }
+
+    public void Dispose()
+    {
+        throw new NotImplementedException();
     }
 }

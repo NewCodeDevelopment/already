@@ -65,17 +65,17 @@ if (app.Environment.IsDevelopment())
     using (var scope = app.Services.CreateScope())
     {
         var services = scope.ServiceProvider;
-
+        var logger = services.GetRequiredService<ILogger<Program>>();
         try
         {
             var context = services.GetRequiredService<AppDbContext>();
             context.Database.Migrate();
             context.Database.EnsureCreated();
-            SeedData.Initialize(services);
+            var logString = SeedData.Initialize(services);
+            logger.LogInformation(logString);
         }
         catch (Exception ex)
         {
-            var logger = services.GetRequiredService<ILogger<Program>>();
             logger.LogError(ex, "An error occurred seeding the DB.");
         }
     }

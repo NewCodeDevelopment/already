@@ -12,6 +12,7 @@ public class ProductVariant : BaseEntity
     public IReadOnlyCollection<ProductOptionValue> ProductOptionValues => _productOptionValues.AsReadOnly();
 
 
+    
     // Properties
     public double Price { get; private set; }
     public int Quantity { get; private set; }
