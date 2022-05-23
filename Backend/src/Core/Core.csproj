@@ -18,4 +18,9 @@
         <ProjectReference Include="..\Shared\Shared.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="ProductAggregate\Events" />
+      <Folder Include="ProductAggregate\Handlers" />
+    </ItemGroup>
+
 </Project>

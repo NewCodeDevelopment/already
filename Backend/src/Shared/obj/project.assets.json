@@ -770,19 +770,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/Burak/.nuget/packages/": {}
+    "/root/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Shared/Shared.csproj",
+      "projectUniqueName": "/app/src/Shared/Shared.csproj",
       "projectName": "Shared",
-      "projectPath": "/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Shared/Shared.csproj",
-      "packagesPath": "/Users/Burak/.nuget/packages/",
-      "outputPath": "/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Shared/obj/",
+      "projectPath": "/app/src/Shared/Shared.csproj",
+      "packagesPath": "/root/.nuget/packages/",
+      "outputPath": "/app/src/Shared/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/Burak/.nuget/NuGet/NuGet.Config"
+        "/root/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -846,7 +846,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.203/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.300/RuntimeIdentifierGraph.json"
       }
     }
   }

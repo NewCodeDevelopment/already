@@ -27,7 +27,15 @@ public class AppDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, 
     
     // ProductAggregate
     public DbSet<Product> Products => Set<Product>();
+    public DbSet<ProductImage> ProductImages => Set<ProductImage>();
+    public DbSet<ProductVariant> ProductVariants => Set<ProductVariant>();
+    public DbSet<ProductOption> ProductOptions => Set<ProductOption>();
+    public DbSet<ProductOptionValue> ProductOptionValues => Set<ProductOptionValue>();
     
+    
+    public DbSet<Brand> Brands => Set<Brand>();
+    public DbSet<Shop> Shops => Set<Shop>();
+    public DbSet<Category> Categories => Set<Category>();
     
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)

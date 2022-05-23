@@ -883,19 +883,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/Burak/.nuget/packages/": {}
+    "/root/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Core/Core.csproj",
+      "projectUniqueName": "/app/src/Core/Core.csproj",
       "projectName": "Core",
-      "projectPath": "/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Core/Core.csproj",
-      "packagesPath": "/Users/Burak/.nuget/packages/",
-      "outputPath": "/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Core/obj/",
+      "projectPath": "/app/src/Core/Core.csproj",
+      "packagesPath": "/root/.nuget/packages/",
+      "outputPath": "/app/src/Core/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/Burak/.nuget/NuGet/NuGet.Config"
+        "/root/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -907,8 +907,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Shared/Shared.csproj": {
-              "projectPath": "/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Shared/Shared.csproj"
+            "/app/src/Shared/Shared.csproj": {
+              "projectPath": "/app/src/Shared/Shared.csproj"
             }
           }
         }
@@ -959,7 +959,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.203/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.300/RuntimeIdentifierGraph.json"
       }
     }
   }

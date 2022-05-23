@@ -1,0 +1,12 @@
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Application/bin/Debug/net6.0/Application.deps.json
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Application/bin/Debug/net6.0/Application.dll
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Application/bin/Debug/net6.0/Application.pdb
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Application/obj/Debug/net6.0/Application.csproj.AssemblyReference.cache
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Application/obj/Debug/net6.0/Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Application/obj/Debug/net6.0/Application.AssemblyInfoInputs.cache
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Application/obj/Debug/net6.0/Application.AssemblyInfo.cs
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Application/obj/Debug/net6.0/Application.csproj.CoreCompileInputs.cache
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Application/obj/Debug/net6.0/Application.dll
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Application/obj/Debug/net6.0/refint/Application.dll
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Application/obj/Debug/net6.0/Application.pdb
+/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Application/obj/Debug/net6.0/ref/Application.dll

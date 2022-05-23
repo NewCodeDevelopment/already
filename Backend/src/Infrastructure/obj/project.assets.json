@@ -2666,19 +2666,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/Burak/.nuget/packages/": {}
+    "/root/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Infrastructure/Infrastructure.csproj",
+      "projectUniqueName": "/app/src/Infrastructure/Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Infrastructure/Infrastructure.csproj",
-      "packagesPath": "/Users/Burak/.nuget/packages/",
-      "outputPath": "/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Infrastructure/obj/",
+      "projectPath": "/app/src/Infrastructure/Infrastructure.csproj",
+      "packagesPath": "/root/.nuget/packages/",
+      "outputPath": "/app/src/Infrastructure/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/Burak/.nuget/NuGet/NuGet.Config"
+        "/root/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -2690,11 +2690,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Core/Core.csproj": {
-              "projectPath": "/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Core/Core.csproj"
+            "/app/src/Core/Core.csproj": {
+              "projectPath": "/app/src/Core/Core.csproj"
             },
-            "/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Shared/Shared.csproj": {
-              "projectPath": "/Users/Burak/Library/Mobile Documents/com~apple~CloudDocs/BUSINESS/PROJECTEN/2022/206_already/Development/already/Backend/src/Shared/Shared.csproj"
+            "/app/src/Shared/Shared.csproj": {
+              "projectPath": "/app/src/Shared/Shared.csproj"
             }
           }
         }
@@ -2743,7 +2743,6 @@
             "version": "[6.0.5, )"
           },
           "NETStandard.Library": {
-            "suppressParent": "All",
             "target": "Package",
             "version": "[2.0.3, )"
           },
@@ -2767,7 +2766,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.203/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.300/RuntimeIdentifierGraph.json"
       }
     }
   }
