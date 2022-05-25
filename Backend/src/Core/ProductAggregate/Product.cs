@@ -84,7 +84,7 @@ public class Product : BaseEntity, IAggregateRoot
 
         if (HasProductVariant(productVariant)) return;
 
-        // productVariant.SetProduct(this);
+        productVariant.SetProduct(this);
         _productVariants.Add(productVariant);
     }
     

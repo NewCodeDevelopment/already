@@ -11,7 +11,7 @@ public class ProductVariantConfig : IEntityTypeConfiguration<ProductVariant>
         builder.Property(x => x.Price)
             .IsRequired();
         
-        builder.Property(x => x.Quantity)
+        builder.Property(x => x.StockQuantity)
             .IsRequired();
       
         

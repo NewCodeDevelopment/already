@@ -1,4 +1,13 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=7d917948_002Dae70_002D4f41_002D8220_002D7a9c45873aeb/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Test1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;ProjectFolder&gt;A7575277-EA81-4CC2-B974-74A9F4D26303/d:Core/d:ProductAggregateTests&lt;/ProjectFolder&gt;
+  &lt;Or&gt;
+    &lt;ProjectFolder&gt;A7575277-EA81-4CC2-B974-74A9F4D26303/d:Core/d:ProductAggregateTests&lt;/ProjectFolder&gt;
+    &lt;TestAncestor&gt;
+      &lt;TestId&gt;xUnit::A7575277-EA81-4CC2-B974-74A9F4D26303::net6.0::UnitTests.Core.OrderAggregate.OrderTest&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::A7575277-EA81-4CC2-B974-74A9F4D26303::net6.0::UnitTests.Core.OrderAggregate.CustomerTest&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::A7575277-EA81-4CC2-B974-74A9F4D26303::net6.0::UnitTests.Core.OrderAggregate.OrderItemTest&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::A7575277-EA81-4CC2-B974-74A9F4D26303::net6.0::UnitTests.Core.OrderAggregate.OrderStateTest&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::A7575277-EA81-4CC2-B974-74A9F4D26303::net6.0::UnitTests.Core.OrderAggregate.BasketTest&lt;/TestId&gt;
+    &lt;/TestAncestor&gt;
+  &lt;/Or&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

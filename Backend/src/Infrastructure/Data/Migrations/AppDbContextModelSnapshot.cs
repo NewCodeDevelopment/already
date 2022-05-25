@@ -141,6 +141,10 @@ namespace Infrastructure.Data.Migrations
                     b.Property<DateTimeOffset>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
@@ -202,6 +206,8 @@ namespace Infrastructure.Data.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("Users", (string)null);
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("ApplicationUser");
                 });
 
             modelBuilder.Entity("Core.IdentityAggregate.ApplicationUserClaim", b =>
@@ -285,6 +291,92 @@ namespace Infrastructure.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("UserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("Core.OrderAggregate.Basket", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid?>("CustomerId")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTimeOffset>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CustomerId")
+                        .IsUnique();
+
+                    b.ToTable("Baskets");
+                });
+
+            modelBuilder.Entity("Core.OrderAggregate.Order", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid?>("CustomerId")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTimeOffset>("OrderPlacedDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("StateType")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTimeOffset>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CustomerId");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("Core.OrderAggregate.OrderItem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid?>("OrderId")
+                        .IsRequired()
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("OrderQuantity")
+                        .HasColumnType("integer");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("double precision");
+
+                    b.Property<Guid>("ProductVariantId")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTimeOffset>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("ProductVariantId");
+
+                    b.ToTable("OrderItems");
                 });
 
             modelBuilder.Entity("Core.ProductAggregate.Brand", b =>
@@ -478,6 +570,9 @@ namespace Infrastructure.Data.Migrations
                     b.Property<string>("Barcode")
                         .HasColumnType("text");
 
+                    b.Property<Guid?>("BasketId")
+                        .HasColumnType("uuid");
+
                     b.Property<DateTimeOffset>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
@@ -487,16 +582,18 @@ namespace Infrastructure.Data.Migrations
                     b.Property<Guid>("ProductId")
                         .HasColumnType("uuid");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Sku")
                         .HasColumnType("text");
+
+                    b.Property<int>("StockQuantity")
+                        .HasColumnType("integer");
 
                     b.Property<DateTimeOffset>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BasketId");
 
                     b.HasIndex("ProductId");
 
@@ -547,6 +644,16 @@ namespace Infrastructure.Data.Migrations
                     b.HasIndex("ProductVariantsId");
 
                     b.ToTable("ProductOptionValueProductVariant");
+                });
+
+            modelBuilder.Entity("Core.OrderAggregate.Customer", b =>
+                {
+                    b.HasBaseType("Core.IdentityAggregate.ApplicationUser");
+
+                    b.Property<Guid>("BasketId")
+                        .HasColumnType("uuid");
+
+                    b.HasDiscriminator().HasValue("Customer");
                 });
 
             modelBuilder.Entity("BrandCategory", b =>
@@ -645,6 +752,45 @@ namespace Infrastructure.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Core.OrderAggregate.Basket", b =>
+                {
+                    b.HasOne("Core.OrderAggregate.Customer", "Customer")
+                        .WithOne("Basket")
+                        .HasForeignKey("Core.OrderAggregate.Basket", "CustomerId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.Navigation("Customer");
+                });
+
+            modelBuilder.Entity("Core.OrderAggregate.Order", b =>
+                {
+                    b.HasOne("Core.OrderAggregate.Customer", "Customer")
+                        .WithMany("Orders")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("Customer");
+                });
+
+            modelBuilder.Entity("Core.OrderAggregate.OrderItem", b =>
+                {
+                    b.HasOne("Core.OrderAggregate.Order", "Order")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Core.ProductAggregate.ProductVariant", "ProductVariant")
+                        .WithMany()
+                        .HasForeignKey("ProductVariantId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+
+                    b.Navigation("ProductVariant");
+                });
+
             modelBuilder.Entity("Core.ProductAggregate.Category", b =>
                 {
                     b.HasOne("Core.ProductAggregate.Category", "Parent")
@@ -715,6 +861,10 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Core.ProductAggregate.ProductVariant", b =>
                 {
+                    b.HasOne("Core.OrderAggregate.Basket", null)
+                        .WithMany("ProductVariants")
+                        .HasForeignKey("BasketId");
+
                     b.HasOne("Core.ProductAggregate.Product", "Product")
                         .WithMany("ProductVariants")
                         .HasForeignKey("ProductId")
@@ -737,6 +887,16 @@ namespace Infrastructure.Data.Migrations
                         .HasForeignKey("ProductVariantsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Core.OrderAggregate.Basket", b =>
+                {
+                    b.Navigation("ProductVariants");
+                });
+
+            modelBuilder.Entity("Core.OrderAggregate.Order", b =>
+                {
+                    b.Navigation("OrderItems");
                 });
 
             modelBuilder.Entity("Core.ProductAggregate.Brand", b =>
@@ -768,6 +928,14 @@ namespace Infrastructure.Data.Migrations
             modelBuilder.Entity("Core.ProductAggregate.Shop", b =>
                 {
                     b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("Core.OrderAggregate.Customer", b =>
+                {
+                    b.Navigation("Basket")
+                        .IsRequired();
+
+                    b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618
         }

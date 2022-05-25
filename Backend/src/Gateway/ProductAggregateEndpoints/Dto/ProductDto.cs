@@ -30,12 +30,4 @@ public class ProductDto : BaseDto
         Options = product.ProductOptions.Select(x => new ProductOptionDto(x));
         Images = product.ProductImages.Select(x => new ProductImageDto(x));
     }
-    
-    // [JsonConstructor]
-    // public ProductDto( string title, string desciption, string state, string id, string createdAt, string updatedAt): base(id, createdAt, updatedAt)
-    // {
-    //     Title = title;
-    //     Desciption = desciption;
-    //     State = state;
-    // }
 }

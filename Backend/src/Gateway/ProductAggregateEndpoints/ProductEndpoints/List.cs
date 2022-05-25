@@ -32,6 +32,5 @@ public class List : EndpointBaseAsync
         var dto = products.Select(product => new ProductDto(product)).ToList();
         var response = new BaseProductResponseList(dto);
         return response;
-
     }
 }

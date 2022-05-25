@@ -1,14 +1,15 @@
 using System.Collections.Generic;
-using System.Linq;
 using Core.ProductAggregate;
-namespace UnitTests.Core.ProductAggregateTests.TestFactories;
+namespace UnitTests.Core.TestFactories.ProductAggregates;
 
-public class CreateProductOption
+public static class TestProductOptionFactory
 {
-    public static readonly string TestOption = "Color";
-    public static readonly ProductOptionValue TestProductOptionValue = new ProductOptionValue("Yellow");
     
-    public static readonly List<ProductOption> TestProductOptions = new List<ProductOption>()
+    // Properties
+    public static readonly string TestOption = "Color";
+    public static readonly ProductOptionValue TestProductOptionValue = new("Yellow");
+    
+    public static readonly List<ProductOption> TestProductOptions = new()
     {
         new ProductOption("Color", new ProductOptionValue("Yellow")),
         new ProductOption("Size", new ProductOptionValue("Big")),
@@ -28,6 +29,8 @@ public class CreateProductOption
             }),
     };
     
+    
+    // Creating Methods
     public static ProductOption Create()
     {
         return new ProductOption(TestOption, TestProductOptionValue);

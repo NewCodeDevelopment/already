@@ -12,7 +12,7 @@ public class ProductVariantDto
     public ProductVariantDto(ProductVariant productVariant)
     {
         Price = productVariant.Price;
-        Quantity = productVariant.Quantity;
+        Quantity = productVariant.StockQuantity;
         Sku = productVariant.Sku;
         Barcode = productVariant.Barcode;
         OptionValues = productVariant.ProductOptionValues.Select(x => x.Value);

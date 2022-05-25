@@ -1,7 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Core.ProductAggregate;
-using UnitTests.Core.ProductAggregateTests.TestFactories;
+using UnitTests.Core.TestFactories.ProductAggregates;
 using Xunit;
 using Xunit.Abstractions;
 using Xunit.Sdk;
@@ -19,8 +20,8 @@ public class ProductVariantsTests
     [Fact]
     public void AddVariantToProject()
     {
-        var testProduct = CreateProduct.Create();
-        var testProductVariant = CreateProductVariant.Create();
+        var testProduct = TestProductFactory.Create();
+        var testProductVariant = TestProductVariantFactory.Create();
 
         Assert.Equal(1, testProduct.ProductVariants.Count);
         
@@ -33,8 +34,8 @@ public class ProductVariantsTests
     [Fact]
     public void AddVariantsToProject()
     {
-        var testProduct = CreateProduct.Create();
-        var testProductVariants = CreateProductVariant.CreateList();
+        var testProduct = TestProductFactory.Create();
+        var testProductVariants = TestProductVariantFactory.CreateList();
         
         testProduct.AddProductVariant(testProductVariants);
         
@@ -45,8 +46,8 @@ public class ProductVariantsTests
     [Fact]
     public void AddVariantsToInitializedProject()
     {
-        var testProductVariants = CreateProductVariant.CreateList();
-        var testProduct = CreateProduct.Create(testProductVariants);
+        var testProductVariants = TestProductVariantFactory.CreateList();
+        var testProduct = TestProductFactory.Create(testProductVariants);
 
         Assert.Equal(testProductVariants.Count, testProduct.ProductVariants.Count);
         Assert.Equal(testProductVariants, testProduct.ProductVariants);
@@ -61,8 +62,8 @@ public class ProductVariantsTests
     [Fact]
     public void SetProductVariantToProductOptionValue()
     {
-        var testProduct = CreateProduct.Create();
-        var testProductVariant = CreateProductVariant.Create();
+        var testProduct = TestProductFactory.Create();
+        var testProductVariant = TestProductVariantFactory.Create();
         
         testProduct.AddProductVariant(testProductVariant);
         
@@ -79,20 +80,20 @@ public class ProductVariantsTests
     [Fact]
     public void AddVariantWithMultipleOptionsToProject()
     {
-        var testProduct = CreateProduct.Create();
-        var testProductVariants = CreateProductVariant.CreateList();
+        var testProduct = TestProductFactory.Create();
+        var testProductVariants = TestProductVariantFactory.CreateList();
         
         testProduct.AddProductVariant(testProductVariants);
         
-        Assert.Equal(CreateProductVariant.TestProductVariants.Count, testProduct.ProductVariants.Count);
+        Assert.Equal(TestProductVariantFactory.TestProductVariants.Count, testProduct.ProductVariants.Count);
         Assert.Equal(testProductVariants, testProduct.ProductVariants);
     }
 
     [Fact]
     public void SetProductOnProductVariant()
     {
-        var testProductVariants = CreateProductVariant.CreateList();
-        var testProduct = CreateProduct.Create(testProductVariants);
+        var testProductVariants = new List<ProductVariant>() {TestProductVariantFactory.Create()};
+        var testProduct = TestProductFactory.Create(testProductVariants);
 
         foreach (var variant in testProduct.ProductVariants)
         {
@@ -104,7 +105,7 @@ public class ProductVariantsTests
     [Fact]
     public void FailToAddVariantToProject()
     {
-        var testProduct = CreateProduct.Create();
+        var testProduct = TestProductFactory.Create();
         var action = () => testProduct.AddProductVariant((ProductVariant)null!);
     
         var exception = Assert.Throws<ArgumentNullException>(action);
@@ -114,8 +115,8 @@ public class ProductVariantsTests
     [Fact]
     public void FailToAddSameVariantToProject()
     {
-        var testProduct = CreateProduct.Create();
-        var testProductVariant = CreateProductVariant.Create();
+        var testProduct = TestProductFactory.Create();
+        var testProductVariant = TestProductVariantFactory.Create();
         testProduct.AddProductVariant(testProductVariant);
         
         testProduct.AddProductVariant(testProductVariant);

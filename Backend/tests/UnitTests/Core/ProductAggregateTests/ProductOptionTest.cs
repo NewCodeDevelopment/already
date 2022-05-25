@@ -1,5 +1,5 @@
 using System.Linq;
-using UnitTests.Core.ProductAggregateTests.TestFactories;
+using UnitTests.Core.TestFactories.ProductAggregates;
 using Xunit;
 namespace UnitTests.Core.ProductAggregateTests;
 
@@ -8,8 +8,8 @@ public class ProductOptionTest
     [Fact]
     public void AddProductOptionValueToProductOptionConstructor()
     {
-        var testProductOptionValue = CreateProductOption.TestProductOptionValue;
-        var testProductOption = CreateProductOption.Create(testProductOptionValue);
+        var testProductOptionValue = TestProductOptionFactory.TestProductOptionValue;
+        var testProductOption = TestProductOptionFactory.Create(testProductOptionValue);
         
         Assert.Equal(1, testProductOption.Values.Count);
         Assert.Equal(testProductOptionValue, testProductOption.Values.First());
@@ -18,8 +18,8 @@ public class ProductOptionTest
     [Fact]
     public void AddProductOptionValueToProductOption()
     {
-        var testProductOption = CreateProductOption.Create();
-        var testProductOptionValue = CreateProductOption.TestProductOptionValue;
+        var testProductOption = TestProductOptionFactory.Create();
+        var testProductOptionValue = TestProductOptionFactory.TestProductOptionValue;
         
         testProductOption.AddProductOptionValue(testProductOptionValue);
         
@@ -30,8 +30,8 @@ public class ProductOptionTest
     [Fact]
     public void SetProductToProductOption()
     {
-        var testProduct = CreateProduct.Create();
-        var testProductVariants = CreateProductVariant.CreateList();
+        var testProduct = TestProductFactory.Create();
+        var testProductVariants = TestProductVariantFactory.CreateList();
         
         testProduct.AddProductVariant(testProductVariants);
 
@@ -39,8 +39,8 @@ public class ProductOptionTest
         {
             foreach (var optionValue in variant.ProductOptionValues)
             {
-                Assert.Equal(optionValue.ProductOption.ProductId, testProduct.Id);
-                Assert.Equal(optionValue.ProductOption.Product, testProduct);
+                var foundVariant = optionValue.ProductVariants.ToList().Find(x => x.Id == variant.Id);
+                Assert.NotNull(foundVariant);
             }
         }
     }
